@@ -11,7 +11,7 @@ namespace TelerikAcademy.AutoDealer.Data
     public class MsSqlDbContext : IdentityDbContext<User>
     {
         public MsSqlDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("LocalConnection", throwIfV1Schema: false)
         {
         }
 
