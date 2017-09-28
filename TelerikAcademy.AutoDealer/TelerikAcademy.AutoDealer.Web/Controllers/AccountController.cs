@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TelerikAcademy.AutoDealer.Web.Models;
+using TelerikAcademy.AutoDealer.Data.Model;
 
 namespace TelerikAcademy.AutoDealer.Web.Controllers
 {

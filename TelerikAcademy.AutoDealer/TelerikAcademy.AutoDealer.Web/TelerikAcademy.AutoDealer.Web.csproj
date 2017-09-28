@@ -271,6 +271,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TelerikAcademy.AutoDealer.Data.Model\TelerikAcademy.AutoDealer.Data.Model.csproj">
+      <Project>{6A537282-67F3-4B74-B102-56481ECFE69B}</Project>
+      <Name>TelerikAcademy.AutoDealer.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TelerikAcademy.AutoDealer.Data\TelerikAcademy.AutoDealer.Data.csproj">
+      <Project>{83F6EE75-E979-40B3-91D3-0EE2293B6463}</Project>
+      <Name>TelerikAcademy.AutoDealer.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using TelerikAcademy.AutoDealer.Web.Models;
+using TelerikAcademy.AutoDealer.Data.Model;
+using TelerikAcademy.AutoDealer.Data;
 
 namespace TelerikAcademy.AutoDealer.Web
 {
@@ -42,7 +44,7 @@ namespace TelerikAcademy.AutoDealer.Web
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<User>(context.Get<ApplicationDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<User>(context.Get<MsSqlDbContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<User>(manager)
             {

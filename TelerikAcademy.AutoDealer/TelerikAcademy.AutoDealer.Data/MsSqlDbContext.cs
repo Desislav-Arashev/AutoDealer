@@ -1,21 +1,23 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TelerikAcademy.AutoDealer.Data.Model;
 
 namespace TelerikAcademy.AutoDealer.Data
 {
     public class MsSqlDbContext : IdentityDbContext<User>
     {
-        public ApplicationDbContext()
+        public MsSqlDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
-        public static ApplicationDbContext Create()
+        public static MsSqlDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new MsSqlDbContext();
         }
     }
 }
