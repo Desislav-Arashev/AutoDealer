@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelerikAcademy.AutoDealer.Data
 {
+    public class MsSqlDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
