@@ -98,6 +98,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TelerikAcademy.AutoDealer.Web\TelerikAcademy.AutoDealer.Web.csproj">
+      <Project>{1A80D99B-ACCC-4A7E-B166-D6242804FE1D}</Project>
+      <Name>TelerikAcademy.AutoDealer.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

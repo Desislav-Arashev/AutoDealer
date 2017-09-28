@@ -3,9 +3,45 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.AutoDealer.Web", "TelerikAcademy.AutoDealer.Web\TelerikAcademy.AutoDealer.Web.csproj", "{1A80D99B-ACCC-4A7E-B166-D6242804FE1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.AutoDealer.Web.Tests", "TelerikAcademy.AutoDealer.Web.Tests\TelerikAcademy.AutoDealer.Web.Tests.csproj", "{BEA0A084-FF42-40D7-87CC-7B90CC4251D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{1121FFD5-952A-435D-A8E5-DDEDFA1305DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.AutoDealer.Data", "TelerikAcademy.AutoDealer.Data\TelerikAcademy.AutoDealer.Data.csproj", "{83F6EE75-E979-40B3-91D3-0EE2293B6463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.AutoDealer.Data.Model", "TelerikAcademy.AutoDealer.Data.Model\TelerikAcademy.AutoDealer.Data.Model.csproj", "{6A537282-67F3-4B74-B102-56481ECFE69B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A80D99B-ACCC-4A7E-B166-D6242804FE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A80D99B-ACCC-4A7E-B166-D6242804FE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A80D99B-ACCC-4A7E-B166-D6242804FE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A80D99B-ACCC-4A7E-B166-D6242804FE1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEA0A084-FF42-40D7-87CC-7B90CC4251D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA0A084-FF42-40D7-87CC-7B90CC4251D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA0A084-FF42-40D7-87CC-7B90CC4251D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA0A084-FF42-40D7-87CC-7B90CC4251D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83F6EE75-E979-40B3-91D3-0EE2293B6463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83F6EE75-E979-40B3-91D3-0EE2293B6463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83F6EE75-E979-40B3-91D3-0EE2293B6463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83F6EE75-E979-40B3-91D3-0EE2293B6463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A537282-67F3-4B74-B102-56481ECFE69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A537282-67F3-4B74-B102-56481ECFE69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A537282-67F3-4B74-B102-56481ECFE69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A537282-67F3-4B74-B102-56481ECFE69B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83F6EE75-E979-40B3-91D3-0EE2293B6463} = {1121FFD5-952A-435D-A8E5-DDEDFA1305DB}
+		{6A537282-67F3-4B74-B102-56481ECFE69B} = {1121FFD5-952A-435D-A8E5-DDEDFA1305DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B71CC98-CF3A-43CE-877E-3E512A54A29F}
