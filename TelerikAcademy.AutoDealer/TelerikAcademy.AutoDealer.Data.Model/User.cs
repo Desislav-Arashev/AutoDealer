@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using TelerikAcademy.ForumSystem.Data.Model.Contracts;
+using TelerikAcademy.AutoDealer.Data.Model.Contracts;
 
-namespace TelerikAcademy.ForumSystem.Data.Model
+namespace TelerikAcademy.AutoDealer.Data.Model
 {
     public class User : IdentityUser, IAuditable, IDeletable
     {

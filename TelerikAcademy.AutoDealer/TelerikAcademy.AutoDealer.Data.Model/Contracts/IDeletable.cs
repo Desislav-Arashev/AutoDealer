@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TelerikAcademy.ForumSystem.Data.Model.Contracts
+namespace TelerikAcademy.AutoDealer.Data.Model.Contracts
 {
     public interface IDeletable
     {
