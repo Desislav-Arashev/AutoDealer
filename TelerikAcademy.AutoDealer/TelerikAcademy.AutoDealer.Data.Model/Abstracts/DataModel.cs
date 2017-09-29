@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using TelerikAcademy.ForumSystem.Data.Model.Contracts;
+using TelerikAcademy.AutoDealer.Data.Model.Contracts;
 
-namespace TelerikAcademy.ForumSystem.Data.Model.Abstracts
+namespace TelerikAcademy.AutoDealer.Data.Model.Abstracts
 {
     public abstract class DataModel : IAuditable, IDeletable
     {

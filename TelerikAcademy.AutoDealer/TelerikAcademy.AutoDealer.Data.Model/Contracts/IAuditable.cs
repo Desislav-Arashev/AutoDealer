@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TelerikAcademy.ForumSystem.Data.Model.Contracts
+namespace TelerikAcademy.AutoDealer.Data.Model.Contracts
 {
     public interface IAuditable
     {
