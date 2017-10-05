@@ -5,7 +5,7 @@ using System.Linq;
 using TelerikAcademy.AutoDealer.Data;
 using TelerikAcademy.AutoDealer.Data.Model.Contracts;
 
-namespace TelerikAcademy.ForumSystem.Data.Repositories
+namespace TelerikAcademy.AutoDealer.Data.Repositories
 {
     public class EfRepository<T> : IEfRepository<T>
         where T : class, IDeletable

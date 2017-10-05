@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.AutoDealer.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.AutoDealer.Data.Model", "TelerikAcademy.AutoDealer.Data.Model\TelerikAcademy.AutoDealer.Data.Model.csproj", "{6A537282-67F3-4B74-B102-56481ECFE69B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2FF6D193-F8E8-4941-886B-5E416740059E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.AutoDealer.Services", "TelerikAcademy.AutoDealer.Services\TelerikAcademy.AutoDealer.Services.csproj", "{1B127FAA-85C9-4C4A-BBF4-6552385D97D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,10 @@ Global
 		{6A537282-67F3-4B74-B102-56481ECFE69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A537282-67F3-4B74-B102-56481ECFE69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A537282-67F3-4B74-B102-56481ECFE69B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B127FAA-85C9-4C4A-BBF4-6552385D97D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B127FAA-85C9-4C4A-BBF4-6552385D97D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B127FAA-85C9-4C4A-BBF4-6552385D97D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B127FAA-85C9-4C4A-BBF4-6552385D97D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{83F6EE75-E979-40B3-91D3-0EE2293B6463} = {1121FFD5-952A-435D-A8E5-DDEDFA1305DB}
 		{6A537282-67F3-4B74-B102-56481ECFE69B} = {1121FFD5-952A-435D-A8E5-DDEDFA1305DB}
+		{1B127FAA-85C9-4C4A-BBF4-6552385D97D1} = {2FF6D193-F8E8-4941-886B-5E416740059E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B71CC98-CF3A-43CE-877E-3E512A54A29F}

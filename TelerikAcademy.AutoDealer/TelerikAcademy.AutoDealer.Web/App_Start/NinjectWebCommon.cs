@@ -6,7 +6,9 @@ using System;
 using System.Data.Entity;
 using System.Web;
 using TelerikAcademy.AutoDealer.Data;
-using TelerikAcademy.ForumSystem.Data.Repositories;
+using TelerikAcademy.AutoDealer.Data.Repositories;
+using TelerikAcademy.AutoDealer.Services.Contracts;
+using TelerikAcademy.AutoDealer.Data.SaveContext;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TelerikAcademy.AutoDealer.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TelerikAcademy.AutoDealer.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -70,8 +72,17 @@ namespace TelerikAcademy.AutoDealer.Web.App_Start
                  .BindDefaultInterface();
             });
 
+            kernel.Bind(x =>
+            {
+                x.FromAssemblyContaining(typeof(IService))
+                 .SelectAllClasses()
+                 .BindDefaultInterface();
+            });
+
+
             kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
+            kernel.Bind<ISaveContext>().To<SaveContext>();
         }        
     }
 }
