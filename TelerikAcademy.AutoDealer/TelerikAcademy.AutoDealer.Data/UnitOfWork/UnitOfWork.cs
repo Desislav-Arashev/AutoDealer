@@ -1,10 +1,10 @@
-﻿namespace TelerikAcademy.AutoDealer.Data.SaveContext
+﻿namespace TelerikAcademy.AutoDealer.Data.UnitOfWork
 {
-    public class SaveContext : ISaveContext
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly MsSqlDbContext context;
 
-        public SaveContext(MsSqlDbContext context)
+        public UnitOfWork(MsSqlDbContext context)
         {
             this.context = context;
         }

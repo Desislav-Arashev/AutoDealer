@@ -8,7 +8,7 @@ using System.Web;
 using TelerikAcademy.AutoDealer.Data;
 using TelerikAcademy.AutoDealer.Data.Repositories;
 using TelerikAcademy.AutoDealer.Services.Contracts;
-using TelerikAcademy.AutoDealer.Data.SaveContext;
+using TelerikAcademy.AutoDealer.Data.UnitOfWork;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TelerikAcademy.AutoDealer.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TelerikAcademy.AutoDealer.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -82,7 +82,7 @@ namespace TelerikAcademy.AutoDealer.Web.App_Start
 
             kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
-            kernel.Bind<ISaveContext>().To<SaveContext>();
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
         }        
     }
 }
