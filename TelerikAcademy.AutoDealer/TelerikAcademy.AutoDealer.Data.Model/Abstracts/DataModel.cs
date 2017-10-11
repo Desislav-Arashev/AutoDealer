@@ -5,7 +5,7 @@ using TelerikAcademy.AutoDealer.Data.Model.Contracts;
 
 namespace TelerikAcademy.AutoDealer.Data.Model.Abstracts
 {
-    public abstract class DataModel : IAuditable, IDeletable
+    public class DataModel : IAuditable, IDeletable
     {
         public DataModel()
         {
@@ -26,5 +26,6 @@ namespace TelerikAcademy.AutoDealer.Data.Model.Abstracts
 
         [DataType(DataType.DateTime)]
         public DateTime? ModifiedOn { get; set; }
+
     }
 }

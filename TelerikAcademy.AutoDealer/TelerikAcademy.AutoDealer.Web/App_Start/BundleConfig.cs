@@ -25,7 +25,14 @@ namespace TelerikAcademy.AutoDealer.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/commerce.css",
+                      "~/Content/styles.css",
+                      "~/Content/css.css",
+                      "~/Content/custom.css",
+                      "~/Content/layerslider.css",
+                      "~/Content/style.css",
+                      "~/Content/style-lc.css"));
         }
     }
 }

@@ -40,9 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarsService.cs" />
     <Compile Include="Contracts\IService.cs" />
+    <Compile Include="ICarsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TelerikAcademy.AutoDealer.Data.Model\TelerikAcademy.AutoDealer.Data.Model.csproj">
+      <Project>{6A537282-67F3-4B74-B102-56481ECFE69B}</Project>
+      <Name>TelerikAcademy.AutoDealer.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TelerikAcademy.AutoDealer.Data\TelerikAcademy.AutoDealer.Data.csproj">
+      <Project>{83F6EE75-E979-40B3-91D3-0EE2293B6463}</Project>
+      <Name>TelerikAcademy.AutoDealer.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

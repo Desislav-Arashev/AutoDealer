@@ -16,7 +16,7 @@ namespace TelerikAcademy.AutoDealer.Data
             : base("LocalConnection", throwIfV1Schema: false)
         {
         }
-
+        public IDbSet<Car> Cars { get; set; }
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
