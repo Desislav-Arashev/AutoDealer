@@ -9,25 +9,76 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("AutoDealer", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("AutoDealer", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("New Car", "New", "Cars")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("New Car", "New", "Cars")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
+        </div>*@
+    <div class="header classic">
+        <div class="logo-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-xs-9">
+                        <div class="logo">
+                            <a title="Buy / Sell Car online" href="/"><img src="~/Content/Images/logo.png" alt="Buy / Sell Car online | CarDealer WordPress Theme"></a>
+                        </div>
+                    </div>
+                </div><!--/ .row-->
+            </div><!--/ .container-->
+
+        </div><!--/ .logo-bar-->
+
+        <div class="space" style="height: auto;"></div><div id="navHolder" class="">
+
+            <div class="nav-bar sticky-bar">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <!-- Responsive Navigation -->
+                            <label for="toggle-main-nav" class="label-toggle-main-nav">
+                                <div class="menu-icon-container">
+                                    <div class="menu-icon">
+                                        <div class="menu-global menu-top"></div>
+                                        <div class="menu-global menu-middle"></div>
+                                        <div class="menu-global menu-bottom"></div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <nav id="navigation" class="navigation clearfix">
+
+                                <ul id="menu-primary-menu" class="menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">@Html.ActionLink("New Car", "New", "Cars")</li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">@Html.ActionLink("About", "About", "Home")</li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                </ul>
+                                @Html.Partial("_LoginPartial")
+                            </nav><!--/ .navigation-->
+                        </div>
+                    </div><!--/ .row-->
+                </div><!--/ .container-->
+
+            </div><!--/ .nav-bar-->
+
+        </div><!--/ #navHolder-->
+
     </div>
     <div class="container body-content">
         @RenderBody()
