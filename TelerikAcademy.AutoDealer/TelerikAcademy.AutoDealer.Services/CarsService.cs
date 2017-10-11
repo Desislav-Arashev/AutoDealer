@@ -10,7 +10,7 @@ using TelerikAcademy.AutoDealer.Services.Contracts;
 
 namespace TelerikAcademy.AutoDealer.Services
 {
-    class CarsService : ICarsService
+    public class CarsService : ICarsService
     {
         private readonly IEfRepository<Car> carsRepo;
         private readonly IUnitOfWork context;
@@ -19,6 +19,12 @@ namespace TelerikAcademy.AutoDealer.Services
         {
             this.carsRepo = postsRepo;
             this.context = context;
+        }
+
+        public void Add(Car car)
+        {
+             this.carsRepo.Add(car);
+            this.context.Commit();
         }
 
         public IQueryable<Car> GetAll()

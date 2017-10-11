@@ -9,7 +9,6 @@ namespace TelerikAcademy.AutoDealer.Data.Model
 {
     public class Make
     {
-        public Guid Id { get; set; }
 
         [Required]
         [StringLength(50)]

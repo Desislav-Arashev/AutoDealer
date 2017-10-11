@@ -10,16 +10,22 @@ namespace TelerikAcademy.AutoDealer.Data.Model
 {
     public class Car : DataModel
     {
-        public Guid Id { get; set; }
         [Required]
         public String Make { get; set; }
         [Required]
         public int YearOfProduction { get; set; }
         [Required]
         public decimal Price { get; set; }
+        [Range(20, 1500)]
+        [Required]
         public int Hp { get; set; }
+        [Range(0, 1000000)]
+        [Required]
         public int Mileage { get; set; }
+        [Required]
         public int Transmission { get; set; }
+        [Required]
+        [StringLength(500)]
         public string Description { get; set; }
     }
 }

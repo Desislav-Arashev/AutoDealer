@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201710110845551_AddCarModel.Designer.cs">
       <DependentUpon>201710110845551_AddCarModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710112243044_CarValidationChanges.cs" />
+    <Compile Include="Migrations\201710112243044_CarValidationChanges.Designer.cs">
+      <DependentUpon>201710112243044_CarValidationChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710110845551_AddCarModel.resx">
       <DependentUpon>201710110845551_AddCarModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710112243044_CarValidationChanges.resx">
+      <DependentUpon>201710112243044_CarValidationChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

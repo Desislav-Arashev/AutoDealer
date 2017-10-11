@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using TelerikAcademy.AutoDealer.Data.Model;
 
 namespace TelerikAcademy.AutoDealer.Services
 {
     public interface ICarsService
     {
+        void Add(Car car);
         IQueryable<Car> GetAll();
+        void Update(Car car);
     }
 }
