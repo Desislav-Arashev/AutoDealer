@@ -8,78 +8,82 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body >
+<body>
     <input id="toggle-main-nav" class="toggle-main-nav" type="checkbox" />
     <div class="wrapper">
         <div class="wrapper-inner">
-
-            <div class="header classic">
-                <div class="logo-bar">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4 col-xs-9">
-                                <div class="logo">
-                                    <a title="Buy / Sell Car online" href="/"><img src="~/Content/Images/logo.png" alt="Buy / Sell Car online | CarDealer WordPress Theme"></a>
-                                </div>
-                            </div>
-                        </div><!--/ .row-->
-                    </div><!--/ .container-->
-
-                </div><!--/ .logo-bar-->
-
-                <div class="space" style="height: auto;"></div><div id="navHolder" class="">
-
-                    <div class="nav-bar sticky-bar">
-
+            <div class="page-wrap">
+                <div id="fb-root"></div>
+                <div class="header classic">
+                    <div class="logo-bar">
                         <div class="container">
                             <div class="row">
-                                <div class="col-xs-12">
-
-                                    <!-- Responsive Navigation -->
-                                    <label for="toggle-main-nav" class="label-toggle-main-nav">
-                                        <div class="menu-icon-container">
-                                            <div class="menu-icon">
-                                                <div class="menu-global menu-top"></div>
-                                                <div class="menu-global menu-middle"></div>
-                                                <div class="menu-global menu-bottom"></div>
-                                            </div>
-                                        </div>
-                                    </label>
-
-
-                                    @Html.Partial("_LoginPartial")
+                                <div class="col-md-4 col-xs-9">
+                                    <div class="logo">
+                                        <a title="Buy / Sell Car online" href="/"><img src="~/Content/Images/logo.png" alt="Buy / Sell Car online | CarDealer WordPress Theme"></a>
+                                    </div>
                                 </div>
                             </div><!--/ .row-->
                         </div><!--/ .container-->
 
-                    </div><!--/ .nav-bar-->
+                    </div><!--/ .logo-bar-->
 
-                </div><!--/ #navHolder-->
+                    <div class="space" style="height: auto;"></div><div id="navHolder" class="">
 
-            </div>
-            <div class="container body-content">
-                @RenderBody()
-                <hr />
-            </div>
+                        <div class="nav-bar sticky-bar">
 
-            <footer id="footer">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12">
 
-                <div class="container">
+                                        <!-- Responsive Navigation -->
+                                        <label for="toggle-main-nav" class="label-toggle-main-nav">
+                                        </label>
+                                            <div class="menu-icon-container">
+                                                <div class="menu-icon">
+                                                    <div class="menu-global menu-top"></div>
+                                                    <div class="menu-global menu-middle"></div>
+                                                    <div class="menu-global menu-bottom"></div>
+                                                </div>
+                                            </div>
 
-                    <div class="row">
-                        <div class="col-xs-12 adjective">
-                            <p class="alignleft">Copyright © @DateTime.Now.Year. All rights reserved</p>
+
+                                        @Html.Partial("_LoginPartial")
+                                    </div>
+                                </div><!--/ .row-->
+                            </div><!--/ .container-->
+
+                        </div><!--/ .nav-bar-->
+
+                    </div><!--/ #navHolder-->
+
+                </div>
+                <div id="content" class="no_sidebar">
+                    <div class="container">
+                        <div class="row">
+                            <main id="main" class="col-xs-12 has-content">
+
+                                @RenderBody()
+
+                            </main>
                         </div>
-                    </div><!--/ .row-->
+                    </div>
+                </div>
 
-                </div><!--/ .container-->
-
-            </footer>
-            @Scripts.Render("~/bundles/jquery")
-            @Scripts.Render("~/bundles/bootstrap")
-            @RenderSection("scripts", required: false)
-
-
+                <footer id="footer">
+                    <div class="container">
+                            <p class="alignleft">Copyright © @DateTime.Now.Year. All rights reserved</p>
+                    </div><!--/ .container-->
+                </footer>
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                <script>
+                    jQuery(function () {
+                        jQuery('#slider_59df32f6e7850').flexslider({ "animation": "fade", "animationLoop": "1", "slideshow": "1", "reverse": "0", "slideshowSpeed": "4000", "animationSpeed": "800", "initDelay": "0", "randomize": "1", "controlNav": true, "directionNav": false, "easing": "swing", "direction": "horizontal", "smoothHeight": false, "startAt": 0, "pauseOnAction": true, "pauseOnHover": false, "useCSS": true, "touch": true, "video": false });
+                    });
+                </script>
+                @RenderSection("scripts", required: false)
+            </div>
         </div><!-- / .wrapper-inner -->
     </div><!-- / .wrapper -->
 </body>

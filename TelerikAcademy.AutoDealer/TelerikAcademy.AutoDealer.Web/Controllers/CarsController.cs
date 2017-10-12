@@ -40,22 +40,29 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
             }
             Car carModel = this.mapper.Map<Car>(car);
             var count = 0;
+            if (Request.Files[0].ContentLength == 0)
+            {
+                carModel.Image1 = "/Content/Images/default.jpg";
+            }
             foreach (string upload in Request.Files)
             {
-                if (Request.Files[upload].ContentLength == 0) continue;
+                if (Request.Files[upload].ContentLength == 0)
+                {
+                    continue;
+                }
                 string pathToSave = Server.MapPath("~/Content/Images/");
                 string filename = Path.GetFileName(Request.Files[upload].FileName);
                 Request.Files[upload].SaveAs(Path.Combine(pathToSave, filename));
                 switch (count)
                 {
                     case 0:
-                        carModel.Image1 = Path.Combine(pathToSave, filename);
+                        carModel.Image1 = Path.Combine("/Content/Images/", filename);
                         break;
                     case 1:
-                        carModel.Image2 = Path.Combine(pathToSave, filename);
+                        carModel.Image2 = Path.Combine("/Content/Images/", filename);
                         break;
                     case 2:
-                        carModel.Image3 = Path.Combine(pathToSave, filename);
+                        carModel.Image3 = Path.Combine("/Content/Images/", filename);
                         break;
                     default:
                         break;
