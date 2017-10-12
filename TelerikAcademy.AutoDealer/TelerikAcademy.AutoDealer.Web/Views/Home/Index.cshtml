@@ -1,1 +1,47 @@
-﻿
+﻿@model IEnumerable<TelerikAcademy.AutoDealer.Web.Models.SliderViewModel>
+
+<div id="section_1120543791894" class="row padding-bottom-40">
+    <div class="col-md-12">
+        <div class="slider-container">
+            <div class="row">
+                <div id="slider_59df32f6e7850" class="flexslider clearfix col-xs-12">
+                    <ul class="slides">
+                        @foreach (var car in Model)
+                        {
+                            <li class="resized" style="width:1130px;height:640px;">
+
+                                <img src="@car.Image1" alt="Car" />
+                                <div class="caption">
+                                    <div class="caption-entry">
+                                        <dl class="auto-detailed clearfix">
+                                            <dt>
+                                                <span class="model">
+                                                    <a href="http://cardealer.webtemplatemasters.com/car/bugatti-veyron-2013-2/">
+                                                        @car.Make  '@car.YearOfProduction
+                                                    </a>
+                                                </span>
+                                            </dt>
+                                            <dd class="media-hidden">
+                                                @car.Hp Hp
+                                            </dd>
+                                            <dd class="media-hidden">
+                                                @car.Mileage Km
+                                            </dd>
+                                            <dd class="media-hidden">
+                                                @car.Transmission
+                                            </dd>
+                                        </dl>
+
+                                        <span class="heading">
+                                            &euro; @car.Price
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
