@@ -17,6 +17,8 @@ namespace TelerikAcademy.AutoDealer.Data
         {
         }
         public IDbSet<Car> Cars { get; set; }
+        public IDbSet<Make> Makes { get; set; }
+        public IDbSet<Transmission> Transmission { get; set; }
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

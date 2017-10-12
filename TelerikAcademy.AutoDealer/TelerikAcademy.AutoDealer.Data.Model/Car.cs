@@ -11,10 +11,12 @@ namespace TelerikAcademy.AutoDealer.Data.Model
     public class Car : DataModel
     {
         [Required]
-        public String Make { get; set; }
+        public Make Make { get; set; }
         [Required]
+        [Range(1900, 2017)]
         public int YearOfProduction { get; set; }
         [Required]
+        [Range(10, 10000000)]
         public decimal Price { get; set; }
         [Range(20, 1500)]
         [Required]
@@ -23,9 +25,9 @@ namespace TelerikAcademy.AutoDealer.Data.Model
         [Required]
         public int Mileage { get; set; }
         [Required]
-        public int Transmission { get; set; }
+        public Transmission Transmission { get; set; }
         [Required]
-        [StringLength(500)]
+        [StringLength(600)]
         public string Description { get; set; }
         [Required]
         public string OwnerEmail { get; set; }

@@ -55,6 +55,15 @@ namespace TelerikAcademy.AutoDealer.Data.Migrations
 
         private void SeedSampleData(MsSqlDbContext context)
         {
+            string[] makeNames = { "AC", "Acura", "Alfa Romeo", "Aston martin", "Audi, Austin", "BMW, Bentley", "Berliner", "Borgward", "Brilliance", "Bugatti", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Citroen", "Corvette", "Dacia", "Daewoo", "Daihatsu", "Daimler", "Datsun", "Dkw", "Dodge", "Dr", "Eagle", "FSO", "Ferrari", "Fiat", "Ford", "Geo", "Great Wall", "Heinkel", "Honda", "Hyundai", "Ifa", "Infiniti", "Innocenti", "Isuzu", "Jaguar", "Kia", "Lada", "Lamborghini", "Lancia", "Lexus", "Lifan", "Lincoln", "Lotus", "Maserati", "Matra", "Maybach", "Mazda", "McLaren", "Mercedes-Benz", "Mercury", "Mg", "Microcar", "Mini", "Mitsubishi", "Morgan", "Moskvich", "Nissan", "Oldsmobile", "Opel", "Perodua", "Peugeot", "Pontiac", "Porsche", "Proton", "Renault", "Rolls-Royce", "Rover", "SECMA", "Saab", "Samand", "Saturn", "Scion", "Seat", "Shatenet", "Shuanghuan", "Simca", "Skoda", "Smart", "Subaru", "Suzuki", "Talbot", "Tata", "Tavria", "Tazzari", "Terberg", "Tesla", "Tofas", "Toyota", "Trabant", "Triumph", "VROMOS", "VW", "Volga", "Volvo", "Warszawa", "Wartburg", "Wiesmann", "Xinshun", "Zastava", "Zaz" };
+            if (!context.Makes.Any())
+            {
+                for (int i = 0; i < makeNames.Length; i++)
+                {
+                    var make = new Make { Name = makeNames[i] };
+                    context.Makes.Add(make);
+                }
+            }
         }
     }
 }

@@ -89,6 +89,10 @@
     <Compile Include="Migrations\201710120707583_ImgUrlsChanged.Designer.cs">
       <DependentUpon>201710120707583_ImgUrlsChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710121322132_Add__Makes.cs" />
+    <Compile Include="Migrations\201710121322132_Add__Makes.Designer.cs">
+      <DependentUpon>201710121322132_Add__Makes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710120707583_ImgUrlsChanged.resx">
       <DependentUpon>201710120707583_ImgUrlsChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710121322132_Add__Makes.resx">
+      <DependentUpon>201710121322132_Add__Makes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
