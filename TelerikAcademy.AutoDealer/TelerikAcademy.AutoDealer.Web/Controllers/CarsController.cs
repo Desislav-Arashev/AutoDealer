@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +16,7 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
     {
         private ICarsService carsService;
         private IMapper mapper;
-        public CarsController(ICarsService carsService, IMapper mapper)
+        public CarsController(ICarsService carsService, IMapper mapper) 
         {
             this.mapper = mapper;
             this.carsService = carsService;
@@ -31,33 +32,40 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
         }
         [HttpPost]
         public ActionResult New(NewCarViewModel car)
-        {
+        { 
             if (!ModelState.IsValid)
             {
                 var viewModel = new NewCarViewModel();
                 return View(viewModel);
-            }   
+            }
+            Car carModel = this.mapper.Map<Car>(car);
+            var count = 0;
             foreach (string upload in Request.Files)
             {
                 if (Request.Files[upload].ContentLength == 0) continue;
                 string pathToSave = Server.MapPath("~/Content/Images/");
                 string filename = Path.GetFileName(Request.Files[upload].FileName);
                 Request.Files[upload].SaveAs(Path.Combine(pathToSave, filename));
+                switch (count)
+                {
+                    case 0:
+                        carModel.Image1 = Path.Combine(pathToSave, filename);
+                        break;
+                    case 1:
+                        carModel.Image2 = Path.Combine(pathToSave, filename);
+                        break;
+                    case 2:
+                        carModel.Image3 = Path.Combine(pathToSave, filename);
+                        break;
+                    default:
+                        break;
+                }
+                count++;
             }
-            Car carModel = this.mapper.Map<Car>(car);
+            
+            carModel.OwnerEmail = this.User.Identity.Name;
             carsService.Add(carModel);
             return RedirectToAction("Index", "Home");
-        }
-
-        [HttpPost]
-        public ActionResult Upload(IEnumerable<HttpPostedFileBase> files)
-        {
-            foreach (var file in files)
-            {
-                file.SaveAs(Server.MapPath("~/Update/" + file.FileName));
-            }
-
-            return View();
         }
     }
 }

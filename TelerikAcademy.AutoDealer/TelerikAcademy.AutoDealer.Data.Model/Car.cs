@@ -27,5 +27,10 @@ namespace TelerikAcademy.AutoDealer.Data.Model
         [Required]
         [StringLength(500)]
         public string Description { get; set; }
+        [Required]
+        public string OwnerEmail { get; set; }
+        public string Image1 { get; set; }
+        public string Image3 { get; set; }
+        public string Image2 { get; set; }
     }
 }

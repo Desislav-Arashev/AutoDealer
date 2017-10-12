@@ -69,6 +69,26 @@
     <Compile Include="Migrations\201710112243044_CarValidationChanges.Designer.cs">
       <DependentUpon>201710112243044_CarValidationChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710120617414_CarOwner.cs" />
+    <Compile Include="Migrations\201710120617414_CarOwner.Designer.cs">
+      <DependentUpon>201710120617414_CarOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710120624457_CarOwnerRequired.cs" />
+    <Compile Include="Migrations\201710120624457_CarOwnerRequired.Designer.cs">
+      <DependentUpon>201710120624457_CarOwnerRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710120643555_imageUrls.cs" />
+    <Compile Include="Migrations\201710120643555_imageUrls.Designer.cs">
+      <DependentUpon>201710120643555_imageUrls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710120656078_image_Urls.cs" />
+    <Compile Include="Migrations\201710120656078_image_Urls.Designer.cs">
+      <DependentUpon>201710120656078_image_Urls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710120707583_ImgUrlsChanged.cs" />
+    <Compile Include="Migrations\201710120707583_ImgUrlsChanged.Designer.cs">
+      <DependentUpon>201710120707583_ImgUrlsChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +119,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710112243044_CarValidationChanges.resx">
       <DependentUpon>201710112243044_CarValidationChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710120617414_CarOwner.resx">
+      <DependentUpon>201710120617414_CarOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710120624457_CarOwnerRequired.resx">
+      <DependentUpon>201710120624457_CarOwnerRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710120643555_imageUrls.resx">
+      <DependentUpon>201710120643555_imageUrls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710120656078_image_Urls.resx">
+      <DependentUpon>201710120656078_image_Urls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710120707583_ImgUrlsChanged.resx">
+      <DependentUpon>201710120707583_ImgUrlsChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
