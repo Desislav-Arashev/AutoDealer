@@ -93,6 +93,10 @@
     <Compile Include="Migrations\201710121322132_Add__Makes.Designer.cs">
       <DependentUpon>201710121322132_Add__Makes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710121327290_AddTransmissions.cs" />
+    <Compile Include="Migrations\201710121327290_AddTransmissions.Designer.cs">
+      <DependentUpon>201710121327290_AddTransmissions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710121322132_Add__Makes.resx">
       <DependentUpon>201710121322132_Add__Makes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710121327290_AddTransmissions.resx">
+      <DependentUpon>201710121327290_AddTransmissions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

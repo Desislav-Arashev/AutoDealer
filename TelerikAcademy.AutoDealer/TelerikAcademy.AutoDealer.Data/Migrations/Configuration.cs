@@ -64,6 +64,16 @@ namespace TelerikAcademy.AutoDealer.Data.Migrations
                     context.Makes.Add(make);
                 }
             }
+
+            string[] transTypes = { "Automatic", "Manual",  };
+            if (!context.Transmission.Any())
+            {
+                for (int i = 0; i < transTypes.Length; i++)
+                {
+                    var transmission = new Transmission { Name = transTypes[i] };
+                    context.Transmission.Add(transmission);
+                }
+            }
         }
     }
 }

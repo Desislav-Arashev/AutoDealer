@@ -7,6 +7,6 @@ namespace TelerikAcademy.AutoDealer.Data.Model
     {
         [Required]
         [StringLength(50)]
-        string Name { get; set; }
+        public string Name { get; set; }
     }
 }
