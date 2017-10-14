@@ -10,29 +10,29 @@ using TelerikAcademy.AutoDealer.Services.Contracts;
 
 namespace TelerikAcademy.AutoDealer.Services
 {
-    public class CarsService : IService, ICarsService
+    public class MakesService : IService, IMakesService
     {
-        private readonly IEfRepository<Car> carsRepo;
+        private readonly IEfRepository<Make> carsRepo;
         private readonly IUnitOfWork context;
 
-        public CarsService(IEfRepository<Car> postsRepo, IUnitOfWork context)
+        public MakesService(IEfRepository<Make> postsRepo, IUnitOfWork context)
         {
             this.carsRepo = postsRepo;
             this.context = context;
         }
 
-        public void Add(Car car)
+        public void Add(Make car)
         {
-             this.carsRepo.Add(car);
+            this.carsRepo.Add(car);
             this.context.Commit();
         }
 
-        public IQueryable<Car> GetAll()
+        public IQueryable<Make> GetAll()
         {
             return this.carsRepo.All;
         }
 
-        public void Update(Car car)
+        public void Update(Make car)
         {
             this.carsRepo.Update(car);
             this.context.Commit();

@@ -1,6 +1,7 @@
 ﻿using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,7 +19,9 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
         }
         public ActionResult Index()
         {
-            IEnumerable<SliderViewModel> cars = carsService.GetAll().OrderByDescending(x=>x.CreatedOn).Take(5).ProjectTo<SliderViewModel>().ToList();
+            IEnumerable<SliderViewModel> cars = 
+                carsService.GetAll().
+                Include(m => m.Make).OrderByDescending(x => x.CreatedOn).Take(5).ProjectTo<SliderViewModel>().ToList();
             return View(cars);
         }
 

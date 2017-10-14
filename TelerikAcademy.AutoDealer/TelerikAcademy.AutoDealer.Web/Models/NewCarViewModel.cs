@@ -11,8 +11,10 @@ namespace TelerikAcademy.AutoDealer.Web.Models
     public class NewCarViewModel : IMapFrom<Car>
     {
         [Required]
-        public String Make { get; set; }
+        [Display(Name = "Make")]
+        public Guid? MakeId { get; set; }
         [Required]
+        [Display(Name = "Year")]
         public int? YearOfProduction { get; set; }
         [Required]
         public decimal? Price { get; set; }
@@ -23,9 +25,12 @@ namespace TelerikAcademy.AutoDealer.Web.Models
         [Required]
         public int? Mileage { get; set; }
         [Required]
-        public int? Transmission { get; set; }
+        [Display(Name = "Transmission")]
+        public Guid? TransmissionId { get; set; }
         [Required]
         [StringLength(500)]
         public string Description { get; set; }
+        public IEnumerable<Make> Makes { get; set; }
+        public IEnumerable<Transmission> Transmissions { get; set; }
     }
 }

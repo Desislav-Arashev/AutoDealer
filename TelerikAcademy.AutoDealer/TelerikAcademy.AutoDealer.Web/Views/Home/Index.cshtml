@@ -9,7 +9,6 @@
                         @foreach (var car in Model)
                         {
                             <li class="resized" style="width:1130px;height:640px;">
-
                                 <img src="@car.Image1" alt="Car" />
                                 <div class="caption">
                                     <div class="caption-entry">
@@ -17,7 +16,7 @@
                                             <dt>
                                                 <span class="model">
                                                     <a href="http://cardealer.webtemplatemasters.com/car/bugatti-veyron-2013-2/">
-                                                        @car.Make  '@car.YearOfProduction
+                                                        @car.Make.Name  '@car.YearOfProduction @car.CreatedOn
                                                     </a>
                                                 </span>
                                             </dt>
@@ -28,7 +27,7 @@
                                                 @car.Mileage Km
                                             </dd>
                                             <dd class="media-hidden">
-                                                @car.Transmission
+                                                @car.Transmission.Name
                                             </dd>
                                         </dl>
 

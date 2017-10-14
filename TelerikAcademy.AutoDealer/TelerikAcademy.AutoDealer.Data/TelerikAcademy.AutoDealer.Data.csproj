@@ -97,6 +97,14 @@
     <Compile Include="Migrations\201710121327290_AddTransmissions.Designer.cs">
       <DependentUpon>201710121327290_AddTransmissions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710141453253_MakesAndTransmissions.cs" />
+    <Compile Include="Migrations\201710141453253_MakesAndTransmissions.Designer.cs">
+      <DependentUpon>201710141453253_MakesAndTransmissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710141638452_RemoveRequiredFromTransmissionAndMake.cs" />
+    <Compile Include="Migrations\201710141638452_RemoveRequiredFromTransmissionAndMake.Designer.cs">
+      <DependentUpon>201710141638452_RemoveRequiredFromTransmissionAndMake.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,6 +156,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710121327290_AddTransmissions.resx">
       <DependentUpon>201710121327290_AddTransmissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141453253_MakesAndTransmissions.resx">
+      <DependentUpon>201710141453253_MakesAndTransmissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710141638452_RemoveRequiredFromTransmissionAndMake.resx">
+      <DependentUpon>201710141638452_RemoveRequiredFromTransmissionAndMake.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

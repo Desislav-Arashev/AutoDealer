@@ -42,8 +42,12 @@
   <ItemGroup>
     <Compile Include="CarsService.cs" />
     <Compile Include="Contracts\IService.cs" />
-    <Compile Include="ICarsService.cs" />
+    <Compile Include="Contracts\ICarsService.cs" />
+    <Compile Include="Contracts\IMakesService.cs" />
+    <Compile Include="Contracts\ITransmissionsService.cs" />
+    <Compile Include="MakesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransmissionsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TelerikAcademy.AutoDealer.Data.Model\TelerikAcademy.AutoDealer.Data.Model.csproj">

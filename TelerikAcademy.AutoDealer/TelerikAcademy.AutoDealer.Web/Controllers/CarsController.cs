@@ -15,9 +15,13 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
     public class CarsController : Controller
     {
         private ICarsService carsService;
+        private ITransmissionsService transmissionsService;
+        private IMakesService makesService;
         private IMapper mapper;
-        public CarsController(ICarsService carsService, IMapper mapper) 
+        public CarsController(IMakesService makesService, ITransmissionsService transmissionsService, ICarsService carsService, IMapper mapper)
         {
+            this.transmissionsService = transmissionsService;
+            this.makesService = makesService;
             this.mapper = mapper;
             this.carsService = carsService;
         }
@@ -27,12 +31,17 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
         }
         public ActionResult New()
         {
+            var makes = this.makesService.GetAll().ToList();
+            var transmissions = this.transmissionsService.GetAll().ToList();
             var viewModel = new NewCarViewModel();
+            viewModel.Makes = makes;
+            viewModel.Transmissions = transmissions.OrderBy(x => x.Name);
             return View(viewModel);
         }
+        [Authorize]
         [HttpPost]
         public ActionResult New(NewCarViewModel car)
-        { 
+        {
             if (!ModelState.IsValid)
             {
                 var viewModel = new NewCarViewModel();
@@ -69,7 +78,7 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
                 }
                 count++;
             }
-            
+
             carModel.OwnerEmail = this.User.Identity.Name;
             carsService.Add(carModel);
             return RedirectToAction("Index", "Home");

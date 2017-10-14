@@ -5,13 +5,13 @@
 }
 
 <h2>New Car</h2>
-@using (Html.BeginForm("New","Cars", FormMethod.Post, new { enctype = "multipart/form-data", @class = "" }))
+@using (Html.BeginForm("New", "Cars", FormMethod.Post, new { enctype = "multipart/form-data", @class = "" }))
 {
     @Html.ValidationSummary(true, "Please fix the following errors.")
     <div class="form-group">
-        @Html.LabelFor(m => m.Make, new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(m => m.Make, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Make)
+        @Html.LabelFor(m => m.MakeId, new { @class = "control-label col-md-2" })
+        @Html.DropDownListFor(m => m.MakeId, new SelectList(Model.Makes.OrderBy(x => x.Name), "Id", "Name"), "Select Make", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MakeId)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.YearOfProduction, new { @class = "control-label col-md-2" })
@@ -34,9 +34,9 @@
         @Html.ValidationMessageFor(m => m.Mileage)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Transmission, new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(m => m.Transmission, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Transmission)
+        @Html.LabelFor(m => m.TransmissionId, new { @class = "control-label col-md-2" })
+        @Html.DropDownListFor(m => m.TransmissionId, new SelectList(Model.Transmissions, "Id", "Name"), "Select Trasnmission", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TransmissionId)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Description, new { @class = "control-label col-md-2" })
@@ -46,11 +46,11 @@
     <h3>Add Images</h3>
     <div class="form-group">
         <label class="control-label col-md-2">Image 1 (main)</label>
-        <input type="file" name="FileUpload1" class = "form-control" />
+        <input type="file" name="FileUpload1" class="form-control" />
         <label class="control-label col-md-2">Image 2</label>
-        <input type="file" name="FileUpload2" class = "form-control"/>
+        <input type="file" name="FileUpload2" class="form-control" />
         <label class="control-label col-md-2">Image 3</label>
-        <input type="file" name="FileUpload3" class = "form-control"/>
+        <input type="file" name="FileUpload3" class="form-control" />
     </div>
 
     @Html.AntiForgeryToken()

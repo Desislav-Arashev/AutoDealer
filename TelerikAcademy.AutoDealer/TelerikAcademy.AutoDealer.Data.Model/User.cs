@@ -18,7 +18,7 @@ namespace TelerikAcademy.AutoDealer.Data.Model
         }
 
         [Index]
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } 
 
         [DataType(DataType.DateTime)]
         public DateTime? DeletedOn { get; set; }

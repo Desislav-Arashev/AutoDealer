@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelerikAcademy.AutoDealer.Services.Contracts
 {
-    public class IService
+    public interface IService
     {
     }
 }
