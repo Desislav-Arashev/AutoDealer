@@ -17,6 +17,10 @@ namespace TelerikAcademy.AutoDealer.Services
 
         public CarsService(IEfRepository<Car> postsRepo, IUnitOfWork context)
         {
+            if (postsRepo == null || context == null)
+            {
+                throw new ArgumentNullException();
+            }
             this.carsRepo = postsRepo;
             this.context = context;
         }

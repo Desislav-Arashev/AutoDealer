@@ -17,6 +17,10 @@ namespace TelerikAcademy.AutoDealer.Services
 
         public TransmissionsService(IEfRepository<Transmission> postsRepo, IUnitOfWork context)
         {
+            if (postsRepo == null || context == null)
+            {
+                throw new ArgumentNullException();
+            }
             this.carsRepo = postsRepo;
             this.context = context;
         }
