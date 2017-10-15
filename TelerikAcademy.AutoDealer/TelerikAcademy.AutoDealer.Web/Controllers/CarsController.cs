@@ -78,7 +78,7 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
 
             search.pageNumber = (page ?? 1);
 
-            search.OnePageOfProducts = cars.ProjectTo<SliderViewModel>().ToList().ToPagedList(search.pageNumber, pageSize);
+            search.OnePageOfProducts = cars.ProjectTo<SliderViewModel>().OrderByDescending(x => x.CreatedOn).ToList().ToPagedList(search.pageNumber, pageSize);
             //var cars = this.carsService.GetAll().Where(x => x.MakeId == makeId && yearFrom > x.YearOfProduction && x.YearOfProduction < yearTo &&
             // priceFrom > x.Price && x.Price < priceTo && hpFrom > x.Hp && x.Hp < hpTo && mileageFrom > x.Mileage && x.Mileage < mileageTo && x.TransmissionId == transmissionId).ProjectTo<SliderViewModel>().ToList();
             return View(search);
