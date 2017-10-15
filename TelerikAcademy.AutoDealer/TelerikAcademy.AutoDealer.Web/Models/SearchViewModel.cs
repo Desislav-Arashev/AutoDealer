@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using TelerikAcademy.AutoDealer.Data.Model;
+using X.PagedList;
 
 namespace TelerikAcademy.AutoDealer.Web.Models
 {
@@ -45,5 +46,7 @@ namespace TelerikAcademy.AutoDealer.Web.Models
 
         public IEnumerable<Make> Makes { get; set; }
         public IEnumerable<Transmission> Transmissions { get; set; }
+        public int pageNumber { get; set; }
+        public IPagedList<SliderViewModel> OnePageOfProducts { get; set; }
     }
 }

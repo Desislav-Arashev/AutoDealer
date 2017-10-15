@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using TelerikAcademy.AutoDealer.Data.Model;
 using TelerikAcademy.AutoDealer.Services;
 using TelerikAcademy.AutoDealer.Web.Models;
+using X.PagedList;
 
 namespace TelerikAcademy.AutoDealer.Web.Controllers
 {
@@ -19,6 +20,7 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
         private ITransmissionsService transmissionsService;
         private IMakesService makesService;
         private IMapper mapper;
+        private const int pageSize = 3;
         public CarsController(IMakesService makesService, ITransmissionsService transmissionsService, ICarsService carsService, IMapper mapper)
         {
             this.transmissionsService = transmissionsService;
@@ -29,6 +31,57 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult Search(SearchViewModel search, int? page)
+        {
+            var cars = this.carsService.GetAll();
+            if (search.MakeId != null)
+            {
+                cars = cars.Where(x => x.MakeId == search.MakeId);
+            }
+            if (search.YearFrom != null)
+            {
+                cars = cars.Where(x => x.YearOfProduction > search.YearFrom);
+            }
+            if (search.YearTo != null)
+            {
+                cars = cars.Where(x => x.YearOfProduction < search.YearTo);
+            }
+            if (search.PriceFrom != null)
+            {
+                cars = cars.Where(x => x.Price > search.PriceFrom);
+            }
+            if (search.PriceTo != null)
+            {
+                cars = cars.Where(x => x.Price < search.PriceTo);
+            }
+            if (search.HpFrom != null)
+            {
+                cars = cars.Where(x => x.Hp > search.HpFrom);
+            }
+            if (search.HpTo != null)
+            {
+                cars = cars.Where(x => x.Hp < search.HpTo);
+            }
+            if (search.MileageFrom != null)
+            {
+                cars = cars.Where(x => x.Mileage > search.MileageFrom);
+            }
+            if (search.MileageTo != null)
+            {
+                cars = cars.Where(x => x.YearOfProduction < search.MileageTo);
+            }
+            if (search.TransmissionId != null)
+            {
+                cars = cars.Where(x => x.TransmissionId == search.TransmissionId);
+            }
+
+            search.pageNumber = (page ?? 1);
+
+            search.OnePageOfProducts = cars.ProjectTo<SliderViewModel>().ToList().ToPagedList(search.pageNumber, pageSize);
+            //var cars = this.carsService.GetAll().Where(x => x.MakeId == makeId && yearFrom > x.YearOfProduction && x.YearOfProduction < yearTo &&
+            // priceFrom > x.Price && x.Price < priceTo && hpFrom > x.Hp && x.Hp < hpTo && mileageFrom > x.Mileage && x.Mileage < mileageTo && x.TransmissionId == transmissionId).ProjectTo<SliderViewModel>().ToList();
+            return View(search);
         }
         public ActionResult Details(Guid id)
         {

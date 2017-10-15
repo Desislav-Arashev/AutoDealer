@@ -54,7 +54,7 @@
 
             <div class="quicksearch_load_area"></div>
                                 
-            @using (Html.BeginForm("Search", "Cars", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline " }))
+            @using (Html.BeginForm("Search", "Cars", FormMethod.Get, new { enctype = "multipart/form-data", @class = "form-inline " }))
             {
                 <div class="row">
                     <div class="col-md-10">
@@ -112,15 +112,8 @@
                     </div>
                 </div>
                 <br />
-                <button type="submit" class="btn btn-primary">Submit</button>
-                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-success">Search</button>
             }
-
-@*            <form class="car_form_search" action="http://cardealer.webtemplatemasters.com/inventory/">*@
-  @*              <select><option>cawc</option></select>*@
-
-    @*        </form><!--/ .form-panel-->*@
-
         </div>
     </div>
 

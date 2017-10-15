@@ -1,0 +1,84 @@
+﻿@model TelerikAcademy.AutoDealer.Web.Models.SearchViewModel
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+    <div class="page-subheader">
+
+        <h2 class="section-title"><span>Search </span>Results</h2><!-- /.page-title -->
+        <div class="layout-switcher">
+            <a class="layout-grid active" data-css-class="item-grid" href="javascript:void(0);">
+                Grid View
+            </a>
+            <a class="layout-list" data-css-class="item-list" href="javascript:void(0);">
+                List View
+            </a>
+        </div><!--/ .layout-switcher-->
+
+    </div><!-- /.page-subheader -->
+<div id="change-items" class="row tmm-view-mode item-grid">
+
+    @foreach (var item in Model.OnePageOfProducts)
+{
+
+
+        <article class="item car-entry col-md-4">
+
+            <div class="image-post" style="min-height: 159px;">
+
+
+                <a href="/Cars/Details/@item.Id" class="single-image picture video">
+
+                    <img src="@item.Image1" alt="">
+                </a>
+
+
+            </div>
+
+            <div class="detailed">
+
+                <h6 class="title-item">
+
+                    <a href="/Cars/Details/@item.Id">
+                        @item.Make.Name  '@item.YearOfProduction
+                    </a>
+
+                </h6>
+
+                <div class="price">
+
+                    <span class="" data-convert="">
+                        €@item.Price
+                    </span>
+
+                </div>
+
+                <div class="clear"></div>
+
+                <ul class="list-entry">
+
+
+                    <li>
+                        <b>Hp:</b><span>&nbsp;@item.Hp</span>
+                    </li>
+
+                    <li>
+                        <b>GearBox:</b><span>&nbsp;@item.Transmission.Name</span>
+                    </li>
+
+                    <li>
+                        <b>Mileage:</b><span>&nbsp; @item.Mileage km</span>
+                    </li>
+
+                </ul><!--/ .list-entry-->
+                <a href="/Cars/Details/@item.Id" class="button orange">Details</a>
+
+
+
+
+            </div><!--/ .detailed-->
+
+        </article>
+
+    }
+</div>
+@Html.PagedListPager(Model.OnePageOfProducts, page => Url.Action("Search", new { Model.MakeId, Model.HpFrom, Model.HpTo, Model.MileageFrom, Model.MileageTo, Model.PriceFrom, Model.PriceTo, Model.TransmissionId, Model.YearFrom, Model.YearTo, page }))
