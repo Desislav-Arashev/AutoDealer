@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TelerikAcademy.AutoDealer.Web.Models.SliderViewModel>
+﻿@model TelerikAcademy.AutoDealer.Web.Models.HomeViewModel
 
 <div id="section_1120543791894" class="row padding-bottom-40">
     <div class="col-md-12">
@@ -6,7 +6,7 @@
             <div class="row">
                 <div id="slider_59df32f6e7850" class="flexslider clearfix col-xs-12">
                     <ul class="slides">
-                        @foreach (var car in Model)
+                        @foreach (var car in Model.Slides)
                         {
                             <li class="resized" style="width:1130px;height:640px;">
                                 <img src="@car.Image1" alt="Car" />
@@ -43,4 +43,86 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="section_1010730171622" class="row padding-bottom-40">
+
+
+    <div class="col-md-12">
+        <h2 class="section-title"><span>Search </span></h2>
+        <div class="quicksearch-container">
+
+            <div class="quicksearch_load_area"></div>
+                                
+            @using (Html.BeginForm("Search", "Cars", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline " }))
+            {
+                <div class="row">
+                    <div class="col-md-10">
+                        @Html.ValidationSummary(true, "Please fix the following errors.")
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.MakeId)
+                            @Html.DropDownListFor(m => m.Search.MakeId, new SelectList(Model.Search.Makes.OrderBy(x => x.Name), "Id", "Name"), "Make", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.MakeId)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.YearFrom)
+                            @Html.TextBoxFor(m => m.Search.YearFrom, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.YearFrom)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.YearTo)
+                            @Html.TextBoxFor(m => m.Search.YearTo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.YearTo)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.PriceFrom)
+                            @Html.TextBoxFor(m => m.Search.PriceFrom, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.PriceFrom)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.PriceTo)
+                            @Html.TextBoxFor(m => m.Search.PriceTo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.PriceTo)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.HpFrom)
+                            @Html.TextBoxFor(m => m.Search.HpFrom, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.HpFrom)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.HpTo)
+                            @Html.TextBoxFor(m => m.Search.HpTo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.HpTo)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.MileageFrom)
+                            @Html.TextBoxFor(m => m.Search.MileageFrom, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.MileageFrom)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.MileageTo)
+                            @Html.TextBoxFor(m => m.Search.MileageTo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.MileageTo)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Search.TransmissionId)
+                            @Html.DropDownListFor(m => m.Search.TransmissionId, new SelectList(Model.Search.Transmissions, "Id", "Name"), "Trasnmission", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Search.TransmissionId)
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Submit</button>
+                @Html.AntiForgeryToken()
+            }
+
+@*            <form class="car_form_search" action="http://cardealer.webtemplatemasters.com/inventory/">*@
+  @*              <select><option>cawc</option></select>*@
+
+    @*        </form><!--/ .form-panel-->*@
+
+        </div>
+    </div>
+
+
 </div>

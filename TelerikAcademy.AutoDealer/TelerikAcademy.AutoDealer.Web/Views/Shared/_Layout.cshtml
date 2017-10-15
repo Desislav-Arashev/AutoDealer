@@ -26,9 +26,9 @@
                             </div><!--/ .row-->
                         </div><!--/ .container-->
 
-                    </div><!--/ .logo-bar-->
+                    </div>
 
-                    <div class="space" style="height: auto;"></div><div id="navHolder" class="">
+                    <div class="space"></div><div id="navHolder" class="">
 
                         <div class="nav-bar sticky-bar">
 
@@ -38,7 +38,6 @@
 
                                         <!-- Responsive Navigation -->
                                         <label for="toggle-main-nav" class="label-toggle-main-nav">
-                                        </label>
                                             <div class="menu-icon-container">
                                                 <div class="menu-icon">
                                                     <div class="menu-global menu-top"></div>
@@ -47,15 +46,16 @@
                                                 </div>
                                             </div>
 
+                                        </label>
 
                                         @Html.Partial("_LoginPartial")
                                     </div>
-                                </div><!--/ .row-->
-                            </div><!--/ .container-->
+                                </div>
+                            </div>
 
-                        </div><!--/ .nav-bar-->
+                        </div>
 
-                    </div><!--/ #navHolder-->
+                    </div>
 
                 </div>
                 <div id="content" class="no_sidebar">
@@ -73,7 +73,7 @@
                 <footer id="footer">
                     <div class="container">
                             <p class="alignleft">Copyright © @DateTime.Now.Year. All rights reserved</p>
-                    </div><!--/ .container-->
+                    </div>
                 </footer>
                 @Scripts.Render("~/bundles/jquery")
                 @Scripts.Render("~/bundles/bootstrap")
@@ -84,7 +84,7 @@
                 </script>
                 @RenderSection("scripts", required: false)
             </div>
-        </div><!-- / .wrapper-inner -->
-    </div><!-- / .wrapper -->
+        </div>
+    </div>
 </body>
 </html>

@@ -13,6 +13,8 @@ namespace TelerikAcademy.AutoDealer.Web.Models
         [Required]
         public Make Make { get; set; }
         [Required]
+        public Guid? MakeId { get; set; }
+        [Required]
         public int YearOfProduction { get; set; }
         [Required]
         public decimal Price { get; set; }
