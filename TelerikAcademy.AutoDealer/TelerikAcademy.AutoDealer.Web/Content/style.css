@@ -7097,7 +7097,6 @@ input, select, textarea {
     background-color: #fff;
     color: #8f8f8f;
     font-family: "Arial",Tahoma,Verdana;
-    -moz-appearance: none;
     appearance: none;
     -webkit-border-radius: 0;
     -webkit-transition: border 0.35s ease-in-out,background 0.35s ease-in-out;

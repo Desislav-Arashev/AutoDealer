@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,13 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult Details(Guid id)
+        {
+            var viewModel = this.carsService.GetAll().ProjectTo<DetailsViewModel>().SingleOrDefault(x => x.Id == id);
+            
+
+            return View(viewModel);
         }
         public ActionResult New()
         {

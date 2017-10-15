@@ -8,9 +8,10 @@ using TelerikAcademy.AutoDealer.Web.Infrastructure;
 
 namespace TelerikAcademy.AutoDealer.Web.Models
 {
-    public class SliderViewModel : IMapFrom<Car>
+    public class DetailsViewModel : IMapFrom<Car>
     {
         public Guid Id { get; set; }
+        public string OwnerEmail { get; set; }
         [Required]
         public Make Make { get; set; }
         [Required]
@@ -31,6 +32,8 @@ namespace TelerikAcademy.AutoDealer.Web.Models
         [StringLength(500)]
         public string Description { get; set; }
         public string Image1 { get; set; }
+        public string Image2 { get; set; }
+        public string Image3 { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 }

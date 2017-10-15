@@ -9,9 +9,13 @@ namespace TelerikAcademy.AutoDealer.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/vendor-min.js",
-                        "~/Scripts/jquery.flexslider-min.js"));
+                        "~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/vendor").Include(
+            "~/Scripts/vendor-min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/flexslider").Include(
+            "~/Scripts/jquery.flexslider-min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
