@@ -1,0 +1,49 @@
+﻿@model ICollection<TelerikAcademy.AutoDealer.Web.Areas.Administrator.Models.CarViewModel>
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Kendo.Mvc.UI;
+<div class="row mt-5">
+    @(Html.Kendo()
+    .Grid(Model)
+    .Name("gr")
+    .Columns(columns =>
+    {
+        columns.Bound(c => c.Id);
+        columns.Bound(c => c.OwnerEmail);
+        columns.Bound(c => c.Price);
+        columns.Bound(c => c.Hp);
+        columns.Bound(c => c.IsDeleted).Title("Deleted");
+        columns.Bound(c => c.Description);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+    })
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Pageable(p =>
+    {
+        p.PageSizes(true);
+        p.Refresh(true);
+    })
+    .Sortable()
+    .Scrollable()
+    .Filterable()
+    .HtmlAttributes(new { style = "height:500px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(5)
+        .Model(model =>
+        {
+            model.Id(c => c.Id);
+            model.Field(c => c.Id).Editable(true);
+            model.Field(c => c.Price).Editable(true);
+            model.Field(c => c.Description).Editable(true);
+            model.Field(c => c.Hp).Editable(true);
+            model.Field(c => c.OwnerEmail).Editable(true);
+        })
+        .Read(read => read.Action("GetCars", "CarsGrid", new { area = "Administrator" }))
+        .Update(update => update.Action("UpdateCar", "CarsGrid", new { area = "Administrator" }))
+        .Destroy(update => update.Action("DeleteCar", "CarsGrid", new { area = "Administrator" }))
+     )
+    .Deferred()
+    )
+</div>
