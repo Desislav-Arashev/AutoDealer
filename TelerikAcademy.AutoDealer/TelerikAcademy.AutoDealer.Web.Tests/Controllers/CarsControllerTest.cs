@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using TelerikAcademy.AutoDealer.Data.Model;
 using TelerikAcademy.AutoDealer.Services;
 using TelerikAcademy.AutoDealer.Web.App_Start;
@@ -20,6 +21,177 @@ namespace TelerikAcademy.AutoDealer.Web.Tests.Controllers
     [TestClass]
     public class CarsControllerTest
     {
+        [TestMethod]
+        public void New_ShouldHaveHpNull_ViewModel()
+        {
+            var carServiceMock = new Mock<ICarsService>();
+            var makesServiceMock = new Mock<IMakesService>();
+            var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+            var mapperMock = new Mock<IMapper>();
+            var carMock = new Mock<NewCarViewModel>();
+            CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+
+            ViewResult result = controller.New() as ViewResult;
+
+            var product = (NewCarViewModel)result.ViewData.Model;
+
+            Assert.AreEqual(product.Hp, null);
+        }
+
+        [TestMethod]
+        public void New_ShouldHaveMakeIdNull_ViewModel()
+        {
+            var carServiceMock = new Mock<ICarsService>();
+            var makesServiceMock = new Mock<IMakesService>();
+            var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+            var mapperMock = new Mock<IMapper>();
+            var carMock = new Mock<NewCarViewModel>();
+            CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+
+            ViewResult result = controller.New() as ViewResult;
+
+            var product = (NewCarViewModel)result.ViewData.Model;
+
+            Assert.AreEqual(product.MakeId, null);
+        }
+        [TestMethod]
+        public void New_ShouldHaveMileageIdNull_ViewModel()
+        {
+            var carServiceMock = new Mock<ICarsService>();
+            var makesServiceMock = new Mock<IMakesService>();
+            var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+            var mapperMock = new Mock<IMapper>();
+            var carMock = new Mock<NewCarViewModel>();
+            CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+
+            ViewResult result = controller.New() as ViewResult;
+
+            var product = (NewCarViewModel)result.ViewData.Model;
+
+            Assert.AreEqual(product.Mileage, null);
+        }
+        [TestMethod]
+        public void New_ShouldHaveMileagePriceNull_ViewModel()
+        {
+            var carServiceMock = new Mock<ICarsService>();
+            var makesServiceMock = new Mock<IMakesService>();
+            var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+            var mapperMock = new Mock<IMapper>();
+            var carMock = new Mock<NewCarViewModel>();
+            CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+
+            ViewResult result = controller.New() as ViewResult;
+
+            var product = (NewCarViewModel)result.ViewData.Model;
+
+            Assert.AreEqual(product.Price, null);
+        }
+
+        [TestMethod]
+        public void New_ShouldHaveMileageTransmissionIdNull_ViewModel()
+        {
+            var carServiceMock = new Mock<ICarsService>();
+            var makesServiceMock = new Mock<IMakesService>();
+            var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+            var mapperMock = new Mock<IMapper>();
+            var carMock = new Mock<NewCarViewModel>();
+            CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+
+            ViewResult result = controller.New() as ViewResult;
+
+            var product = (NewCarViewModel)result.ViewData.Model;
+
+            Assert.AreEqual(product.TransmissionId, null);
+        }
+        [TestMethod]
+        public void New_ShouldHaveMileageYearOfProductionNull_ViewModel()
+        {
+            var carServiceMock = new Mock<ICarsService>();
+            var makesServiceMock = new Mock<IMakesService>();
+            var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+            var mapperMock = new Mock<IMapper>();
+            var carMock = new Mock<NewCarViewModel>();
+            CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+
+            ViewResult result = controller.New() as ViewResult;
+
+            var product = (NewCarViewModel)result.ViewData.Model;
+
+            Assert.AreEqual(product.YearOfProduction, null);
+        }
+        [TestMethod]
+        public void New_ShouldHaveMileageDescriptionNull_ViewModel()
+        {
+            var carServiceMock = new Mock<ICarsService>();
+            var makesServiceMock = new Mock<IMakesService>();
+            var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+            var mapperMock = new Mock<IMapper>();
+            var carMock = new Mock<NewCarViewModel>();
+            CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+
+            ViewResult result = controller.New() as ViewResult;
+
+            var product = (NewCarViewModel)result.ViewData.Model;
+
+            Assert.AreEqual(product.Description, null);
+        }
+        [TestMethod]
+        public void New_ShouldReturnMakes_ViewModel()
+        {
+            var carServiceMock = new Mock<ICarsService>();
+            var makesServiceMock = new Mock<IMakesService>();
+            var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+            var mapperMock = new Mock<IMapper>();
+            var carMock = new Mock<NewCarViewModel>();
+            var listOfMakes = new List<Make>();
+            listOfMakes.Add(new Make() { Name = "Test" });
+            makesServiceMock.Setup(x => x.GetAll()).Returns(listOfMakes.AsQueryable);
+            CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+
+            ViewResult result = controller.New() as ViewResult;
+
+            var product = (NewCarViewModel)result.ViewData.Model;
+
+            Assert.AreEqual(product.Makes.Count(), 1);
+        }
+
+        [TestMethod]
+        public void New_ShouldReturnTransmissions_ViewModel()
+        {
+            var carServiceMock = new Mock<ICarsService>();
+            var makesServiceMock = new Mock<IMakesService>();
+            var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+            var mapperMock = new Mock<IMapper>();
+            var carMock = new Mock<NewCarViewModel>();
+            var listOfTransmissions = new List<Transmission>();
+            listOfTransmissions.Add(new Transmission() { Name = "Test" });
+            tranmissionsServiceMock.Setup(x => x.GetAll()).Returns(listOfTransmissions.AsQueryable);
+            CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+
+            ViewResult result = controller.New() as ViewResult;
+
+            var product = (NewCarViewModel)result.ViewData.Model;
+
+            Assert.AreEqual(product.Transmissions.Count(), 1);
+        }
+        [TestMethod]
+        public void New_ldReturnTransmissions_ViewModel()
+        {
+            var request = new Mock<HttpRequestBase>();
+            var car = new NewCarViewModel()
+            {
+                Description = " ",
+                Hp = 55,
+                MakeId = new Guid(),
+                Makes = new List<Make>() { new Make() { Name = "test" } },
+                Mileage = 200,
+                Price = 200,
+                TransmissionId = new Guid(),
+                Transmissions = new List<Transmission>() { new Transmission() { Name = "test" }, },
+                YearOfProduction = 2010
+            };
+        }
+
         [TestMethod]
         public void Index_ShouldNotBeNull()
         {
@@ -85,7 +257,7 @@ namespace TelerikAcademy.AutoDealer.Web.Tests.Controllers
             {
                 cfg.CreateMap<Car, SliderViewModel>();
             });
-            var searchViewModel = new SearchViewModel() { HpFrom=0, HpTo=10, MakeId = new Guid(), Makes = new List<Make>(), MileageFrom = 0, MileageTo = 10, pageNumber = 1, PriceFrom = 1, PriceTo = 10, TransmissionId = new Guid(), YearFrom = 10, YearTo = 20, Transmissions = new List<Transmission>()};
+            var searchViewModel = new SearchViewModel() { HpFrom = 0, HpTo = 10, MakeId = new Guid(), Makes = new List<Make>(), MileageFrom = 0, MileageTo = 10, pageNumber = 1, PriceFrom = 1, PriceTo = 10, TransmissionId = new Guid(), YearFrom = 10, YearTo = 20, Transmissions = new List<Transmission>() };
             CarsController homeController = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
 
             var result = homeController.Search(searchViewModel, 1) as ViewResult;
@@ -159,6 +331,7 @@ namespace TelerikAcademy.AutoDealer.Web.Tests.Controllers
                 .WithCallTo(x => x.Search(search, 1))
                 .ShouldRenderDefaultView();
         }
+
         [TestMethod]
         public void New_ShouldReturnDefaultView_WhenInvoked()
         {
@@ -230,7 +403,7 @@ namespace TelerikAcademy.AutoDealer.Web.Tests.Controllers
             CarsController carsController = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
 
             // Act
-            ViewResult result = carsController.Details(new Guid()) as ViewResult;
+            ViewResult result = carsController.Details(detailsModel.Id) as ViewResult;
 
             // Assert
             carsController
