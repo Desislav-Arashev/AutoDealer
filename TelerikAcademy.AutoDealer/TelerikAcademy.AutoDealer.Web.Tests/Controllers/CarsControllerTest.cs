@@ -190,7 +190,7 @@ namespace TelerikAcademy.AutoDealer.Web.Tests.Controllers
                 Transmissions = new List<Transmission>() { new Transmission() { Name = "test" }, },
                 YearOfProduction = 2010
             };
-        }
+            }
 
         [TestMethod]
         public void Index_ShouldNotBeNull()
@@ -445,5 +445,25 @@ namespace TelerikAcademy.AutoDealer.Web.Tests.Controllers
                 .WithCallTo(x => x.New())
                 .ShouldRenderDefaultView();
         }
+
+        //[TestMethod]
+        //public void Details_ShouldHaveHpNull_ViewModel()
+        //{
+        //    var carServiceMock = new Mock<ICarsService>();
+        //    var makesServiceMock = new Mock<IMakesService>();
+        //    var tranmissionsServiceMock = new Mock<ITransmissionsService>();
+        //    var mapperMock = new Mock<IMapper>();
+        //    var carMock = new Mock<DetailsViewModel>();
+        //    CarsController controller = new CarsController(makesServiceMock.Object, tranmissionsServiceMock.Object, carServiceMock.Object, mapperMock.Object);
+            
+        //    var listOfMakes = new List<Car>();
+        //    listOfMakes.Add(new Car() { Hp = 22 });
+        //    carServiceMock.Setup(x => x.GetAll()).Returns(listOfMakes.AsQueryable);
+        //    ViewResult result = controller.Details(new Guid()) as ViewResult;
+
+        //    var product = (DetailsViewModel)result.ViewData.Model;
+
+        //    Assert.AreEqual(product.Hp, null);
+        //}
     }
 }
