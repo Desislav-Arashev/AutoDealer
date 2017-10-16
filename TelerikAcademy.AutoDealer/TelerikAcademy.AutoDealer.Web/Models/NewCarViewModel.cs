@@ -10,6 +10,7 @@ namespace TelerikAcademy.AutoDealer.Web.Models
 {
     public class NewCarViewModel : IMapFrom<Car>
     {
+        public Guid? Id { get; set; }
         [Required]
         [Display(Name = "Make")]
         public Guid? MakeId { get; set; }

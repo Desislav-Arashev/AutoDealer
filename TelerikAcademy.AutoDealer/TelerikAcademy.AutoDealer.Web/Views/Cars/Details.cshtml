@@ -82,3 +82,8 @@
         </div>
     </div><!--/ .row-->
 </article>
+
+@if (Model.OwnerEmail == this.Context.User.Identity.Name)
+{
+    <a href="/cars/edit/@Model.Id" class="btn btn-danger">Edit</a>
+}

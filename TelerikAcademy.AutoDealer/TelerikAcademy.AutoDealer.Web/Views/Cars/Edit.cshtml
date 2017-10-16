@@ -1,0 +1,64 @@
+﻿@model TelerikAcademy.AutoDealer.Web.Models.NewCarViewModel
+@{
+    ViewBag.Title = "NewCar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Car</h2>
+@using (Html.BeginForm("Edit", "Cars", FormMethod.Post, new { enctype = "multipart/form-data", @class = "" }))
+{
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.MakeId, new { @class = "control-label col-md-2" })
+        @Html.DropDownListFor(m => m.MakeId, new SelectList(Model.Makes.OrderBy(x => x.Name), "Id", "Name"), "Select Make", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MakeId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.YearOfProduction, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.YearOfProduction, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.YearOfProduction)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Price)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Hp, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.Hp, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Hp)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mileage, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.Mileage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Mileage)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.TransmissionId, new { @class = "control-label col-md-2" })
+        @Html.DropDownListFor(m => m.TransmissionId, new SelectList(Model.Transmissions, "Id", "Name"), "Select Trasnmission", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TransmissionId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description, new { @class = "control-label col-md-2" })
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <h3>Add Images</h3>
+    <div class="form-group">
+        <label class="control-label col-md-2">Image 1 (main)</label>
+        <input type="file" name="FileUpload1" class="form-control" />
+        <label class="control-label col-md-2">Image 2</label>
+        <input type="file" name="FileUpload2" class="form-control" />
+        <label class="control-label col-md-2">Image 3</label>
+        <input type="file" name="FileUpload3" class="form-control" />
+    </div>
+
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
