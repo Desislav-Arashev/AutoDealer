@@ -90,6 +90,7 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
 
             return View(viewModel);
         }
+        [Authorize]
         public ActionResult New()
         {
             var makes = this.makesService.GetAll().ToList();
@@ -98,6 +99,62 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
             viewModel.Makes = makes;
             viewModel.Transmissions = transmissions.OrderBy(x => x.Name);
             return View(viewModel);
+        }
+
+        [Authorize]
+        public ActionResult Edit(Guid Id)
+        {
+            var makes = this.makesService.GetAll().ToList();
+            var transmissions = this.transmissionsService.GetAll().ToList();
+            var car = this.carsService.GetAll().ProjectTo<NewCarViewModel>().SingleOrDefault(x => x.Id == Id);
+            car.Makes = makes;
+            car.Transmissions = transmissions.OrderBy(x => x.Name);
+            return View(car);
+        }
+        [Authorize]
+        [HttpPost]
+        public ActionResult Edit(NewCarViewModel car)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new NewCarViewModel();
+                return View(viewModel);
+            }
+            Car carModel = this.mapper.Map<Car>(car);
+            var count = 0;
+            if (Request.Files[0].ContentLength == 0)
+            {
+                carModel.Image1 = "/Content/Images/default.jpg";
+            }
+            foreach (string upload in Request.Files)
+            {
+                if (Request.Files[upload].ContentLength == 0)
+                {
+                    continue;
+                }
+                string pathToSave = Server.MapPath("~/Content/Images/");
+                string filename = Path.GetFileName(Request.Files[upload].FileName);
+                Request.Files[upload].SaveAs(Path.Combine(pathToSave, filename));
+                switch (count)
+                {
+                    case 0:
+                        carModel.Image1 = Path.Combine("/Content/Images/", filename);
+                        break;
+                    case 1:
+                        carModel.Image2 = Path.Combine("/Content/Images/", filename);
+                        break;
+                    case 2:
+                        carModel.Image3 = Path.Combine("/Content/Images/", filename);
+                        break;
+                    default:
+                        break;
+                }
+                count++;
+            }
+
+            carModel.OwnerEmail = this.User.Identity.Name;
+            carsService.Update(carModel);
+            return RedirectToAction("Index", "Home");
         }
 
         [Authorize]
