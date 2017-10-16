@@ -99,6 +99,7 @@ namespace TelerikAcademy.AutoDealer.Web.Controllers
             viewModel.Transmissions = transmissions.OrderBy(x => x.Name);
             return View(viewModel);
         }
+
         [Authorize]
         [HttpPost]
         public ActionResult New(NewCarViewModel car)

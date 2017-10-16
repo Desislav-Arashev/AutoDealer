@@ -27,6 +27,10 @@ namespace TelerikAcademy.AutoDealer.Services
 
         public void Add(Transmission car)
         {
+            if (car == null)
+            {
+                throw new ArgumentNullException();
+            }
             this.carsRepo.Add(car);
             this.context.Commit();
         }

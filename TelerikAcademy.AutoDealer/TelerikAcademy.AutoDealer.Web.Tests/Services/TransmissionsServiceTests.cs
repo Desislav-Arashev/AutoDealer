@@ -13,22 +13,22 @@ using TelerikAcademy.AutoDealer.Services;
 namespace TelerikAcademy.AutoDealer.Web.Tests.Services
 {
     [TestClass]
-    public class MakesServiceTests
+    public class TransmissionsServiceTests
     {
         [TestMethod]
-        public void GetAll_ReturnAllMakes_WhenValidMakeIsPassedAsParameter()
+        public void GetAll_ReturnAlltransmissions_WhenValidtransmissionIsPassedAsParameter()
         {
             //Arrange
-            var makesRepo = new Mock<IEfRepository<Make>>();
-            var list = new List<Make>();
+            var transmissionsRepo = new Mock<IEfRepository<Transmission>>();
+            var list = new List<Transmission>();
             var uow = new Mock<IUnitOfWork>();
-            list.Add(new Make()
+            list.Add(new Transmission()
             {
                 Name = "test"
             });
-            makesRepo.Setup(u => u.All).Returns(list.AsQueryable);
+            transmissionsRepo.Setup(u => u.All).Returns(list.AsQueryable);
 
-            var sut = new MakesService(makesRepo.Object, uow.Object);
+            var sut = new TransmissionsService(transmissionsRepo.Object, uow.Object);
 
             // Act 
             var name = "test";
@@ -39,18 +39,18 @@ namespace TelerikAcademy.AutoDealer.Web.Tests.Services
         }
 
         [TestMethod]
-        public void Update_UpdatesMake_WhenValidMakeIsPassedAsParameter()
+        public void Update_Updatestransmission_WhenValidtransmissionIsPassedAsParameter()
         {
             //Arrange
-            var makesRepo = new Mock<IEfRepository<Make>>();
-            var list = new List<Make>();
+            var transmissionsRepo = new Mock<IEfRepository<Transmission>>();
+            var list = new List<Transmission>();
             var uow = new Mock<IUnitOfWork>();
-            var car = new Make()
+            var car = new Transmission()
             {
                 Name = "test"
             };
 
-            var sut = new MakesService(makesRepo.Object, uow.Object);
+            var sut = new TransmissionsService(transmissionsRepo.Object, uow.Object);
 
             // Act 
             var name = "test";
@@ -64,34 +64,34 @@ namespace TelerikAcademy.AutoDealer.Web.Tests.Services
         {
             var uow = new Mock<IUnitOfWork>();
             //Arrange, Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => new MakesService(null, uow.Object));
+            Assert.ThrowsException<ArgumentNullException>(() => new TransmissionsService(null, uow.Object));
         }
         [TestMethod]
         public void ConstructorShould_ThrowArgumentNullException_WhenNullUnitOfWorkIsPassedAsParameter()
         {
             //Arrange 
-            var makesRepo = new Mock<IEfRepository<Make>>();
+            var transmissionsRepo = new Mock<IEfRepository<Transmission>>();
             //Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => new MakesService(makesRepo.Object, null));
+            Assert.ThrowsException<ArgumentNullException>(() => new TransmissionsService(transmissionsRepo.Object, null));
         }
         [TestMethod]
-        public void ConstructorShould_NotThrow_WhenValidMakeRepositoryIsPassedAsParameter()
+        public void ConstructorShould_NotThrow_WhenValidtransmissionRepositoryIsPassedAsParameter()
         {
             //Arrange
             var uow = new Mock<IUnitOfWork>();
-            var makesRepo = new Mock<IEfRepository<Make>>();
+            var transmissionsRepo = new Mock<IEfRepository<Transmission>>();
             //Act & Assert
-            new MakesService(makesRepo.Object, uow.Object);
+            new TransmissionsService(transmissionsRepo.Object, uow.Object);
         }
         [TestMethod]
         public void AddShould_ThrowException_WhenPassedNullAlbum()
         {
             // Arrange
-            var carRepo = new Mock<IEfRepository<Make>>();
+            var carRepo = new Mock<IEfRepository<Transmission>>();
             var uow = new Mock<IUnitOfWork>();
 
             // Act
-            var carsService = new MakesService(carRepo.Object, uow.Object);
+            var carsService = new TransmissionsService(carRepo.Object, uow.Object);
 
             // Assert
             Assert.ThrowsException<ArgumentNullException>(() => carsService.Add(null));
@@ -100,14 +100,14 @@ namespace TelerikAcademy.AutoDealer.Web.Tests.Services
         public void AddShould_NotThrow_WhenValuesAreCorrect()
         {
             // Arrange
-            var makeRepo = new Mock<IEfRepository<Make>>();
+            var transmissionRepo = new Mock<IEfRepository<Transmission>>();
             var uow = new Mock<IUnitOfWork>();
-            var make = new Mock<Make>();
+            var transmission = new Mock<Transmission>();
             // Act
-            var makesService = new MakesService(makeRepo.Object, uow.Object);
+            var makesService = new TransmissionsService(transmissionRepo.Object, uow.Object);
 
             // Assert
-            makesService.Add(make.Object);
+            makesService.Add(transmission.Object);
         }
     }
 }
