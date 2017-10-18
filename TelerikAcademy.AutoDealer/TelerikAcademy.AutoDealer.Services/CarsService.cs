@@ -35,9 +35,20 @@ namespace TelerikAcademy.AutoDealer.Services
             this.context.Commit();
         }
 
+        public void Delete(Car car)
+        {
+            this.carsRepo.Delete(car);
+            this.context.Commit();
+        }
+
         public IQueryable<Car> GetAll()
         {
             return this.carsRepo.All;
+        }
+
+        public IQueryable<Car> GetAllAndDeleted()
+        {
+            return this.carsRepo.AllAndDeleted;
         }
 
         public void Update(Car car)

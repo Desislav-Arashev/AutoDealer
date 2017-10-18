@@ -7,6 +7,8 @@ namespace TelerikAcademy.AutoDealer.Services
     {
         void Add(Car car);
         IQueryable<Car> GetAll();
+        IQueryable<Car> GetAllAndDeleted();
         void Update(Car car);
+        void Delete(Car car);
     }
 }

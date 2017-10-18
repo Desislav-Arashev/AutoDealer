@@ -6,6 +6,10 @@
     @Html.AntiForgeryToken()
         <nav id="navigation" class="navigation clearfix">
             <ul id="menu-primary-menu" class="menu">
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("Admin", "Index", "Admin", new { area = "Administrator" }, null)</li>
+                }
                 <li>@Html.ActionLink("New Car", "New", "Cars")</li>
                 <li>@Html.ActionLink("Latest Cars", "Search", "Cars")</li>
                 <li>@Html.ActionLink("About", "About", "Home")</li>
